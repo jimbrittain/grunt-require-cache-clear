@@ -13,11 +13,13 @@ module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('grunt-require-cache-clear', 'Removal of files from require.cache where retention can cause issues in watch environments.', function(arg1, arg2) {
+  grunt.registerMultiTask('require_cache_clear', 'Removal of files from require.cache where retention can cause issues in watch environments.', function(arg1, arg2) {
     // Merge task-specific and/or target-specific options with these defaults.
     if(require && 'cache' in require){
-        arg1 = arg1 || undefined;
-        arg2 = arg2 || undefined;
+        arg1 = arg1 || (this.files || undefined);
+        arg2 = arg2 || (this.options || undefined);
+        grunt.log.writeln('Argument 1 = ' + arg1);
+        grunt.log.writeln('Argument 2 = ' + arg2);
         var rcc = new RequireCacheClear(arg1, arg2);
         var l = rcc.run(), i, imax;
         for(i=0, imax = l.msg.length; i<imax; i+=1){ grunt.log.writeln(l.msg[i]); }
