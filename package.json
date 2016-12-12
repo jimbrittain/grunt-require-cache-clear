@@ -1,0 +1,43 @@
+{
+  "name": "grunt-require-cache-clear",
+  "description": "Grunt task for the removal of files from require.cache where retention can cause issues in watch environments.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jimbrittain/grunt-require-cache-clear",
+  "author": {
+    "name": "Jim Brittain",
+    "email": "jim@immaturedawn.co.uk",
+    "url": "http://immaturedawn.co.uk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jimbrittain/grunt-require-cache-clear.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jimbrittain/grunt-require-cache-clear/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jimbrittain/grunt-require-cache-clear/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5",
+    "glob": "~7.1.1"
+  },
+  "keywords": [
+    "gruntplugin",
+    "require",
+    "cache",
+    "watch"
+  ]
+}
