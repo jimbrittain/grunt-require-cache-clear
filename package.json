@@ -1,7 +1,7 @@
 {
   "name": "grunt-require-cache-clear",
   "description": "Grunt task for the removal of files from require.cache where retention can cause issues in watch environments.",
-  "version": "0.0.2",
+  "version": "0.0.12",
   "homepage": "https://github.com/jimbrittain/grunt-require-cache-clear",
   "author": {
     "name": "Jim Brittain",

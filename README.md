@@ -1,5 +1,5 @@
 # grunt-require-cache-clear
-RequireCacheClear is a for the removal of files from require.cache where retention can cause issues, particularly in watch build environments.
+[WIP Alpha - not working yet] RequireCacheClear is a for the removal of files from require.cache where retention can cause issues, particularly in watch build environments.
 ## Description
 Whilst primarily conceived as a Grunt task, and developed for that implementation, RequireCacheClear can also be used within a node environment for removing require.cache inclusions. In this form in can be used as in object form, giving several helpful methods (RequireCacheClear) or from a quick function call (clearRequireCache).
 

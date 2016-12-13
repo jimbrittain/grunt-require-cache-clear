@@ -16,16 +16,19 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('require_cache_clear', 'Removal of files from require.cache where retention can cause issues in watch environments.', function(arg1, arg2) {
     // Merge task-specific and/or target-specific options with these defaults.
     if(require && 'cache' in require){
-        arg1 = arg1 || (this.files || undefined);
-        arg2 = arg2 || (this.options || undefined);
-        grunt.log.writeln('Argument 1 = ' + arg1);
-        grunt.log.writeln('Argument 2 = ' + arg2);
-        var rcc = new RequireCacheClear(arg1, arg2);
+        //arg1 = arg1 || (this.data.files.src || undefined);
+        //arg2 = arg2 || (this.data.options || undefined);
+        arg1 = this.data || undefined;
+        var rcc;
+        if(arg1 !== undefined){
+            rcc = new RequireCacheClear(arg1);
+        //var rcc = new RequireCacheClear(arg1, arg2);
         var l = rcc.run(), i, imax;
         for(i=0, imax = l.msg.length; i<imax; i+=1){ grunt.log.writeln(l.msg[i]); }
         for(i=0, imax = l.errors.msg.length; i<imax; i+=1){ grunt.log.error(l.errors.msg[i]); }
         for(i=0, imax = l.verbose.length; i<imax; i+=1){ grunt.log.verbose.writeln(l.verbose[i]); }
         for(i=0, imax = l.errors.verbose.length; i<imax; i+=1){ grunt.log.verbose.error(l.errors.verbose[i]); }
+        }
     } else {
         grunt.log.error('require.cache cannot be found. Exiting with error.');
     }
