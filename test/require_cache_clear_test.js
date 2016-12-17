@@ -12,7 +12,7 @@ var localfiles = [
     'test/testinc2/inc/testrequire1.js',
     'test/testinc2/inc/testrequire2.js'
 ];
-var modulewildfiles = 'testinc/inc/**.js';
+var modulewildfiles = 'glob/**.js';
 var localwildfiles = 'test/testinc2/inc/**.js';
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -147,11 +147,11 @@ exports.require_cache_clear = {
     },
     is_RequireCacheClear_clearWildcardFiles: function(test){
         test.expect(1);
-        var testnames = modulewildfiles;
-        var t1 = require(modulefiles[0]),
-            t2 = require(modulefiles[1]),
-            r1 = require.resolve(modulefiles[0]),
-            r2 = require.resolve(modulefiles[1]);
+        var testnames = '../' + localwildfiles;
+        var t1 = require('../' + localfiles[0]),
+            t2 = require('../' + localfiles[1]),
+            r1 = require.resolve('../' + localfiles[0]),
+            r2 = require.resolve('../' + localfiles[1]);
         var found = false;
         var a = new RequireCacheClear({files: { src: [testnames]}});
         a.run();
@@ -162,12 +162,12 @@ exports.require_cache_clear = {
     },
     is_RequireCacheClear_clearSeveralWildcardFiles: function(test){
         test.expect(1);
-        var testnames = [modulewildfiles, localwildfiles];
+        var testnames = [modulewildfiles, '../' + localwildfiles];
         var t1 = require(modulefiles[0]),
-            t2 = require(modulefiles[1]),
+            t2 = require('../' + localfiles[1]),
             t3 = require('../' + localfiles[0]);
         var r1 = require.resolve(modulefiles[0]),
-            r2 = require.resolve(modulefiles[1]),
+            r2 = require.resolve('../' + localfiles[1]),
             r3 = require.resolve('../' + localfiles[0]);
         var a = new RequireCacheClear({files:{src:testnames}});
         a.run();
@@ -216,12 +216,12 @@ exports.require_cache_clear = {
     },
     is_RequireCacheClear_clearBlockWildcardWithSingleIgnore: function(test){
         test.expect(1);
-        var testnames = [modulewildfiles];
-        var ignorenames = modulefiles[0];
-        var t1 = require(modulefiles[0]),
-            t2 = require(modulefiles[1]);
-        var r1 = require.resolve(modulefiles[0]),
-            r2 = require.resolve(modulefiles[1]);
+        var testnames = ['../' + localwildfiles];
+        var ignorenames = localfiles[0];
+        var t1 = require('../' + localfiles[0]),
+            t2 = require('../' + localfiles[1]);
+        var r1 = require.resolve('../' + localfiles[0]),
+            r2 = require.resolve('../' + localfiles[1]);
         var a = new RequireCacheClear({files:{src:testnames}, options:{ignoreFiles:{src:ignorenames}}});
         a.run();
         var foundIgnored = false;
@@ -237,13 +237,13 @@ exports.require_cache_clear = {
     },
     is_RequireCacheClear_clearBlockWildCardsWithSingleIgnore: function(test){
         test.expect(1);
-        var testnames = [modulewildfiles, localwildfiles];
+        var testnames = [modulewildfiles, '../' + localwildfiles];
         var ignorenames = modulefiles[0];
         var t1 = require(modulefiles[0]),
-            t1a = require(modulefiles[1]),
+            t1a = require('../' + localfiles[1]),
             t2 = require('../' + localfiles[0]);
         var r1 = require.resolve(modulefiles[0]),
-            r2 = require.resolve(modulefiles[1]),
+            r2 = require.resolve('../' + localfiles[1]),
             r3 = require.resolve('../' + localfiles[0]);
         var a = new RequireCacheClear({files:{src:testnames}, options:{ignoreFiles:{src:ignorenames}}});
         a.run();

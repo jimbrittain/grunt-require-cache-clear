@@ -33,19 +33,17 @@ module.exports = function(grunt) {
     require_cache_clear: {
       default_options: {
         options: {
+            clearAll: false,
         },
         files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
+            src: ['test/fixtures/testing', 'test/fixtures/123']
         }
       },
-      custom_options: {
+      all: {
         options: {
-          separator: ': ',
-          punctuation: ' !!!'
+            clearAll: true
         },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+        files: { }
       }
     },
 
