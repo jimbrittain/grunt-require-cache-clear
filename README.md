@@ -1,5 +1,5 @@
 # grunt-require-cache-clear
-[WIP Alpha - not working yet] RequireCacheClear is a for the removal of files from require.cache where retention can cause issues, particularly in watch build environments.
+RequireCacheClear is a for the removal of files from require.cache where retention can cause issues, particularly in watch build environments.
 ## Description
 Whilst primarily conceived as a Grunt task, and developed for that implementation, RequireCacheClear can also be used within a node environment for removing require.cache inclusions. In this form in can be used as in object form, giving several helpful methods (RequireCacheClear) or from a quick function call (clearRequireCache).
 
@@ -68,20 +68,8 @@ options.ignoreFiles, as files in grunt-require-cache-clear operates on lazy supp
 
 ### Usage Examples
 
-#### Default Options
-```js
-grunt.initConfig({
-  require_cache_clear: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+2017/1/18 - Initial Release
