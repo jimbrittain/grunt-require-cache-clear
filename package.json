@@ -12,6 +12,7 @@
     "type": "git",
     "url": "git://github.com/jimbrittain/grunt-require-cache-clear.git"
   },
+  "jsdelivr": "lib/RequireCacheClear.js",
   "bugs": {
     "url": "https://github.com/jimbrittain/grunt-require-cache-clear/issues"
   },
